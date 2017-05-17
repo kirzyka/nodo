@@ -1,32 +1,40 @@
 {
-	"name": "nodo",
-	"version": "1.0.0",
-	"description": "Nodo Project",
-	"main": "app.js",
-	"scripts": {
-	    "start": "node app.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/kirzyka/nodo.git"
-	},
-	"keywords": [
-		"nodejs",
-		"express",
-		"vue",
-		"semanticui",
-		"less",
-		"mongodb"
-	],
-	"author": "Anton Kirzyk",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/kirzyka/nodo/issues"
-	},
-	"homepage": "https://github.com/kirzyka/nodo#readme",
-	"dependencies": {
-		"express": "^4.15.2",
-		"pug": "^2.0.0-rc.1"
-	}
+  "name": "nodo",
+  "version": "1.0.0",
+  "description": "Nodo Project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirzyka/nodo.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "vue",
+    "semanticui",
+    "less",
+    "mongodb"
+  ],
+  "author": "Anton Kirzyk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kirzyka/nodo/issues"
+  },
+  "homepage": "https://github.com/kirzyka/nodo#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "pug": "^2.0.0-rc.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-uglifyjs": "^0.6.2",
+    "run-sequence": "^1.2.2"
+  }
 }
