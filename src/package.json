@@ -27,6 +27,8 @@
   "homepage": "https://github.com/kirzyka/nodo#readme",
   "dependencies": {
     "express": "^4.15.2",
+    "mongodb": "^2.2.19",
+    "mongoose": "^4.9.9",
     "pug": "^2.0.0-rc.1",
     "semantic-ui": "^2.2.10"
   },
