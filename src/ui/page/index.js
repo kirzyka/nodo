@@ -1,5 +1,4 @@
 /*globals Vue */
-/*eslint-env jquery */
 var app,
 	users = [],
 	count = 4003;

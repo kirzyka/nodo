@@ -82,10 +82,11 @@ gulp.task('watch', function() {
 	gulp.watch('./ui/**/*.js', ['js']);
 });
 
+
 /**
- *	RUN
+ *	Build All
  */
 // Действия по умолчанию
-gulp.task('default', ['clean'], function (done) {
-    sequence('js', 'semantic');
+gulp.task('build', ['clean'], function (done) {
+    sequence('js', 'semantic', 'watch', done);
 });

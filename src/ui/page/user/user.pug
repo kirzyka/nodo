@@ -3,7 +3,7 @@ html
 	include ../head
 	body
 		h1(class='ui center aligned header') Responsive UI Examples
-		div(class='ui container') 
+		div(id='page_user', class='ui container') 
 			div(class='ui segments') 
 				div(class='ui segment') 
 					p User
@@ -15,4 +15,6 @@ html
 			div(class='ui raised very padded text container segment')
 				h2(class='ui header') Header
 				p Bla bla bla
-				p Boroda boroda boroda		
+				p Boroda boroda boroda {{ count }}
+		// App
+		script(src='js/uiapp.min.js')
