@@ -1,24 +1,20 @@
 var express = require('express'),
 	path = require('path'),
-	app = express(),
+	app = express();
 	
-	route = require('./api/_routes');
+// Globals	
+global.BASE_PATH = __dirname;	
 	
-	
-app.use(express.static(path.join(__dirname, '/ui/dist')));	
-
-app.set('views', path.join(__dirname, '/ui')); 
+// Settings	
+app.set('views', path.join(global.BASE_PATH, '/ui')); 
 app.set('view engine', 'pug');	
 
-//Routes
-app.use(require('./api/_routes'));
+// Static
+app.use(express.static(path.join(global.BASE_PATH, '/ui/dist')));	
+// Routes
+app.use(require('./app.routes'));
 
-app.get('/', function (req, res) {
-	res.render('index', { title: 'Hey', message: 'Hello there!'});
-});
-
+// Run
 app.listen(3000, function () {
 	console.log('Nodo::Server listening on port 3000!');
 });
-
-console.log('root', __dirname);
