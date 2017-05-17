@@ -84,6 +84,6 @@ gulp.task('watch', function() {
  *	RUN
  */
 // Действия по умолчанию
-gulp.task('default', function (done) {
-    sequence('clean', 'js', done);
+gulp.task('default', ['clean'], function (done) {
+    sequence('js');
 });
