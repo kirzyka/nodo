@@ -4,7 +4,8 @@ var express = require('express'),
 	mongoose = require('mongoose');
 	
 // Globals	
-global.BASE_PATH = __dirname;	
+global.BASE_PATH = __dirname;
+global.db = mongoose;	
 	
 // Settings	
 app.set('views', path.join(global.BASE_PATH, '/ui')); 

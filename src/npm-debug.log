@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/opt/bitnami/node/bin/node',
+1 verbose cli   '/opt/bitnami/node/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'build' ]
+2 info using npm@4.0.5
+3 info using node@v7.2.0
+4 verbose run-script [ 'prebuild', 'build', 'postbuild' ]
+5 info lifecycle nodo@1.0.0~prebuild: nodo@1.0.0
+6 silly lifecycle nodo@1.0.0~prebuild: no script for prebuild, continuing
+7 info lifecycle nodo@1.0.0~build: nodo@1.0.0
+8 verbose lifecycle nodo@1.0.0~build: unsafe-perm in lifecycle true
+9 verbose lifecycle nodo@1.0.0~build: PATH: /opt/bitnami/node/lib/node_modules/npm/bin/node-gyp-bin:/projects/nodo/src/node_modules/.bin:/opt/bitnami/mongodb/sbin:/opt/bitnami/mongodb/bin:/opt/bitnami/node/bin:/opt/bitnami/python/bin:/opt/bitnami/nami/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+10 verbose lifecycle nodo@1.0.0~build: CWD: /projects/nodo/src
+11 silly lifecycle nodo@1.0.0~build: Args: [ '-c', 'gulp build' ]
+12 silly lifecycle nodo@1.0.0~build: Returned: code: 1  signal: null
+13 info lifecycle nodo@1.0.0~build: Failed to exec build script
+14 verbose stack Error: nodo@1.0.0 build: `gulp build`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/opt/bitnami/node/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/opt/bitnami/node/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:885:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid nodo@1.0.0
+16 verbose cwd /projects/nodo/src
+17 error Linux 3.10.0-514.16.1.el7.x86_64
+18 error argv "/opt/bitnami/node/bin/node" "/opt/bitnami/node/bin/npm" "run" "build"
+19 error node v7.2.0
+20 error npm  v4.0.5
+21 error code ELIFECYCLE
+22 error nodo@1.0.0 build: `gulp build`
+22 error Exit status 1
+23 error Failed at the nodo@1.0.0 build script 'gulp build'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the nodo package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     gulp build
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs nodo
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls nodo
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
