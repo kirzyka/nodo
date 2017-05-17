@@ -23,8 +23,12 @@ gulp.task('clean', function(){
 gulp.task('js', function(){
 
 	// App
-	gulp.src(['./ui/**/*.js', '!./ui/dist/**/*.js'])
-		.pipe(concat('uiapp.js'))
+	gulp.src([
+	       './ui/**/*.js', 
+	       '!./ui/dist/**/*.js',
+	       '!./ui/semantic/**/*.*'
+	    ])
+        .pipe(concat('uiapp.js'))
 		.pipe(gulp.dest('./ui/dist/js'))
         .pipe(uglify('uiapp.min.js',{
 			sourceRoot: '/js',
@@ -62,19 +66,17 @@ gulp.task('css', function() {
 });
 
 /**
- *	TASK (image files)
+ *	TASK (semantic files)
  */
-gulp.task('images', function() {
+gulp.task('semantic', function() {
+	gulp.src(['./ui/semantic/dist/**/*.*'])
+		.pipe(gulp.dest('./ui/dist/semantic'));
 
-	// Base
-	gulp.src(['./app/client/_base/asset/**/*.*'])
-		.pipe(gulp.dest('./public/asset/'));
-
-	// Admin
-	gulp.src(['./app/client/admin/asset/**/*.*'])
-		.pipe(gulp.dest('./public/asset/admin'));
 });
 
+/**
+ *	TASK (watch)
+ */
 gulp.task('watch', function() {
 	// Отслеживаем изменения в файлах
 	gulp.watch('./ui/**/*.js', ['js']);
@@ -85,5 +87,5 @@ gulp.task('watch', function() {
  */
 // Действия по умолчанию
 gulp.task('default', ['clean'], function (done) {
-    sequence('js');
+    sequence('js', 'semantic');
 });
