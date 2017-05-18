@@ -22,17 +22,3 @@ app.listen(3000, function () {
 });
 
 mongoose.connect('mongodb://localhost:27017/nodo');
-
-var Schema = mongoose.Schema,
-    ObjectId = Schema.ObjectId;
- 
-var User = new Schema({
-    username  : String,
-    id     	  : Number,
-    sex       : String
-});
-
-var myModel = mongoose.model('users', User);
-myModel.find({}, function (err, items) {
-	console.log(items); 
-});

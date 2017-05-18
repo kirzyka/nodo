@@ -1,7 +1,18 @@
+var Schema = global.db.Schema,
+    ObjectId = Schema.ObjectId;
+ 
+var User = new Schema({
+    username  : String,
+    id     	  : Number,
+    sex       : String
+});
+
 module.exports = function (param) {
-    return [
-		{username: 'user1', id: 1, sex: 'male'},
-		{username: 'user2', id: 2, sex: 'female'},
-		{username: 'user3', id: 3, sex: 'female'}
-	];
+	return new Promise(function(resolve, reject) {
+		var myModel = global.db.model('users', User);
+		myModel.find({}, function (err, items) {
+			if(err) { return reject(err); }
+			resolve(items); 
+		});		
+	});
 };
