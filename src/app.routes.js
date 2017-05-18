@@ -17,7 +17,7 @@ router.get('/user', function (req, res) {
 });
 
 router.get('/admin', function (req, res) {
-	res.render('page/admin/home/admin.home.pug', { title: 'Nodo :: Admin :: Home Page', message: 'Hello there!'});
+	res.render('page/admin/admin.main.pug', { title: 'Nodo :: Admin :: Home Page', message: 'Hello there!'});
 });
 
 router.get('/admin/users', function (req, res) {

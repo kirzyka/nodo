@@ -1,0 +1,13 @@
+doctype html
+html
+	include ./admin.head.pug
+	body
+		div(id='page_admin_home' class='ui padded grid')
+			div(class="four wide column")
+				include ./admin.menu.pug
+					
+			div(id='app' class="twelve wide stretched column")
+
+
+		// App
+		script(src='/js/uiapp.min.js')
