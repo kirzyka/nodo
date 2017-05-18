@@ -1,0 +1,15 @@
+doctype html
+html
+	include ../admin.head.pug
+	body
+		div(id='page_admin_home' class='ui padded grid')
+			div(class="four wide column")
+				include ../admin.menu.pug
+					
+			div(class="twelve wide stretched column")
+				div(class='ui segment')
+					p Admin Users
+
+
+		// App
+		script(src='/js/uiapp.min.js')

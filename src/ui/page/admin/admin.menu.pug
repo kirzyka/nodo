@@ -1,0 +1,4 @@
+div(id='admin_menu', class='ui vertical fluid tabular menu')
+	a(class='item' v-bind:class='{ active: activeItem==0 }' v-on:click='sw(0)' href='/admin') Menu 1
+	a(class='item' v-bind:class='{ active: activeItem==1 }' v-on:click='sw(1)' href='/admin/users') Menu 2
+	a(class='item' v-bind:class='{ active: activeItem==2 }' v-on:click='sw(2)' href='/admin/posts') Menu 3

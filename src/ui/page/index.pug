@@ -2,28 +2,29 @@ doctype html
 html
 	include ./head
 	body
-		div(id='app')
-			div(class='ui inverted vertical masthead center aligned segment')
-				div(class='ui container')
-					div(class='ui large secondary inverted pointing menu')
-						a(class='item active') Menu 1
-						a(class='item' href='/user') Menu 2
-						a(class='item') Menu 3
-				div(class='ui text container')
+		div(id='app' class='ui padded grid')
+			div(class="four wide column")
+				div(class='ui vertical fluid tabular menu')
+					a(class='item active') Menu 1
+					a(class='item' href='/user') Menu 2
+					a(class='item') Menu 3
+					
+			div(class="twelve wide stretched column")
+				div(class='ui segment')
+					p Test boroda
+
+				div(class='ui segment')
 					button(class='ui blue button' v-on:click='load') Load Data
 					button(class='ui blue button' v-on:click='unload') Unload Data
-					div(class='ui page grid')
+					div(class='ui segment')
 						ul(id='example-1')
 							li(v-for='user in users') {{ user.username }}
 
-				div(class='ui page grid')
-					div(class='ui four column doubling stackable grid container')
-						div(class='column')
-							p Test 1
-							p Test 2
-							p Test 3
-			div(class='ui container')
-				p Test boroda
+				div(class='ui segment')
+					p Test 1
+					p Test 2
+					p Test 3
+		
 
 		// App
 		script(src='js/uiapp.min.js')
