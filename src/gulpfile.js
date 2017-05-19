@@ -1,20 +1,19 @@
 /**
- 	VAR
+ * VAR
  */
 var gulp = require('gulp'),
-    clean = require('gulp-clean'),
-    concat = require('gulp-concat'), 	// Склейка файлов;
-    uglify = require('gulp-uglifyjs'),	// Минификация JS
-    cssmin = require('gulp-cssmin'), 	// Минификация CSS
-    sequence = require('run-sequence');/*
-    sass = require('gulp-sass');*/
+	clean = require('gulp-clean'),
+	concat = require('gulp-concat'), 	// Склейка файлов;
+	uglify = require('gulp-uglifyjs'),	// Минификация JS
+	cssmin = require('gulp-cssmin'), 	// Минификация CSS
+	sequence = require('run-sequence');
 
 /**
  *	TASK (clean)
  */
 gulp.task('clean', function(){
-    gulp.src('./ui/dist', {read: false})
-        .pipe(clean());
+	return gulp.src('./ui/dist', {read: false})
+		.pipe(clean());
 });
 
 /**
@@ -24,18 +23,32 @@ gulp.task('js', function(){
 
 	// App
 	gulp.src([
-	       './ui/**/*.js', 
-	       '!./ui/dist/**/*.js',
-	       '!./ui/semantic/**/*.*'
-	    ])
-        .pipe(concat('uiapp.js'))
-		.pipe(gulp.dest('./ui/dist/js'))
-        .pipe(uglify('uiapp.min.js',{
-			sourceRoot: '/js',
-			basePath: '/ui/dist/js',
-            outSourceMap: 'uiapp.min.js.map'
-        }))
-		.pipe(gulp.dest('./ui/dist/js'));
+		'./ui/**/*.js', 
+		'!./ui/page/admin/**/*.js',
+		'!./ui/dist/**/*.js',
+		'!./ui/semantic/**/*.*'
+	])
+	.pipe(concat('app.js'))
+	.pipe(gulp.dest('./ui/dist/js'))
+	.pipe(uglify('app.min.js',{
+		sourceRoot: '/js',
+		basePath: '/ui/dist/js',
+ 		outSourceMap: 'app.min.js.map'
+	}))
+	.pipe(gulp.dest('./ui/dist/js'));
+		
+	// Admin
+	gulp.src([
+		'./ui/page/admin/**/*.js'
+	])
+	.pipe(concat('admin.js'))
+	.pipe(gulp.dest('./ui/dist/js'))
+	.pipe(uglify('admin.min.js',{
+		sourceRoot: '/js',
+		basePath: '/ui/dist/js',
+ 		outSourceMap: 'admin.min.js.map'
+	}))
+	.pipe(gulp.dest('./ui/dist/js'));
 });
 
 /**
@@ -70,7 +83,7 @@ gulp.task('css', function() {
  */
 gulp.task('semantic', function() {
 	gulp.src(['./ui/semantic/dist/**/*.*'])
-		.pipe(gulp.dest('./ui/dist/semantic'));
+	.pipe(gulp.dest('./ui/dist/semantic'));
 
 });
 
@@ -87,6 +100,6 @@ gulp.task('watch', function() {
  *	Build All
  */
 // Действия по умолчанию
-gulp.task('build', ['clean'], function (done) {
-    sequence('js', 'semantic', 'watch', done);
+gulp.task('build', ['clean'], function(done) {
+	sequence(['js', 'semantic']);
 });

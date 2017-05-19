@@ -5,15 +5,14 @@ html
 		div(id='app' class='ui padded grid')
 			div(class="four wide column")
 				div(class='ui vertical fluid tabular menu')
-					a(class='item active') Menu 1
-					a(class='item' href='/user') Menu 2
-					a(class='item') Menu 3
+					router-link(class='item' active-class='active' exact='false' to='/') Menu 1
+					router-link(class='item' active-class='active' exact='false' to='/users') Menu 2
+					router-link(class='item' active-class='active' exact='false' to='/posts') Menu 3
 					
 			div(class="twelve wide stretched column")
-				div(class='ui segment')
-					p Test boroda
+				router-view(class='ui segment')
 
-				div(class='ui segment')
+				// div(class='ui segment')
 					button(class='ui blue button' v-on:click='load') Load Data
 					button(class='ui blue button' v-on:click='unload') Unload Data
 					div(class='ui segment')
@@ -23,8 +22,7 @@ html
 				div(class='ui segment')
 					p Test 1
 					p Test 2
-					p Test 3
 		
 
 		// App
-		script(src='js/uiapp.min.js')
+		script(src='js/app.min.js')

@@ -1,27 +1,23 @@
 /*globals Vue */
-var app,
-	users = [],
-	count = 4003;
 
 // For 404 page
-var notFound = Vue.extend({
+var notFound = {
    // You can use also use template path (Thanks to @jcerdan)
    // path : '/path/to/component.html'
    template: '<h1>Not Found</h1>'
-});
+};
 
-var c1 = Vue.extend({
+var c1 = {
    // You can use also use template path (Thanks to @jcerdan)
    // path : '/path/to/component.html'
    template: '<h1>Component1</h1>'
-});
+};
 
-var c2 = Vue.extend({
+var c2 = {
    // You can use also use template path (Thanks to @jcerdan)
    // path : '/path/to/component.html'
    template: '<h1>Component2</h1>'
-});
-
+};
 
 var c3 = Vue.component('async-example', function (resolve, reject) {
   setTimeout(function () {
@@ -33,37 +29,22 @@ var c3 = Vue.component('async-example', function (resolve, reject) {
 });
 	
 // Tell Vue to use view-router
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 // Router options
 var router = new VueRouter({
-   history: false,
-   root: '/'
+  mode: 'hash',
+  routes: [
+    { path: '*', component: notFound },
+    { path: '/', component: c1 },
+    { path: '/users', component: c2 },
+    { path: '/posts', component: c3 }
+  ],
 });
 
-// Router map for defining components
-router.map({
-   // For Not Found template
-   '*': {
-      component: notFound
-   },
-
-   '/admin': {
-      component: c1
-   },
-
-   '/admin/users': {
-      component: c2
-   },
-
-   '/admin/posts': {
-      component: c3
-   }
-});
-
-var App = Vue.extend()
-
-router.start(App, '#app');
+var app = new Vue({
+  router: router
+}).$mount('#app');
 /*
 app = new Vue({
 	el: '#app',
@@ -84,10 +65,5 @@ app = new Vue({
 	},
 	created: function() {
 		var self = this;
-
-		/*setInterval(function() {
-			self.count+=1;
-			console.log(self.count);
-		}, 1000);*/
 	}
 });*/
